@@ -2,30 +2,37 @@ const { programs } = require('../sampleData.js');
 
 const { 
   GraphQLObjectType, 
+  GraphQLNonNull,
   GraphQLID, 
   GraphQLString, 
   GraphQLBoolean, 
-  GraphQLUnionType, 
+  GraphQLList,
   GraphQLSchema 
 } = require('graphql');
 
 const ProgramType = new GraphQLObjectType({
   name: 'Program',
   fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    type: { type: GraphQLID },
-    hours: { type: GraphQLString },
+    id: { type: new GraphQLNonNull(GraphQLID) },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    description: { type: new GraphQLNonNull(GraphQLString) },
+    type: { type: GraphQLString },
     country: { type: GraphQLString },
-    lengthInMonths: { type: GraphQLString },
+    lengthInWeeks: { type: GraphQLString },
     careerGuidance: { type: GraphQLBoolean },
-    additionalResources: { type: GraphQLUnionType },
+    additionalResources: { type: GraphQLString },
   })
 });
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
+    programs: {
+      type: new GraphQLList(ProgramType),
+      resolve(parent, args) {
+        return programs;
+      } 
+    },
     program: {
       type: ProgramType,
       args: { id: { type: GraphQLID } },

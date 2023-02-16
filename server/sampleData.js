@@ -2,34 +2,31 @@ const programs = [
   {
     id: 1,
     name: "Firebrand",
-    type: 1, // represents bootcamp
-    hours: "full-time",
+    description: "Blargh",
+    type: 'Bootcamp',
     country: 'United Kingdom',
-    lengthInMonths: "Varies",
+    lengthInWeeks: "Varies",
     careerGuidance: true,
-    additionalResources: null
   },
-
   {
     id: 2,
-    name: "Maxx Potential",
-    type: 2, // represents apprenticeship
-    hours: "full-time",
+    name: "Maxx Potential Tech Apprenticeship",
+    description: "hahahah",
+    type: 'Apprenticeship',
     country: 'United States',
-    lengthInMonths: "Varies",
+    lengthInWeeks: "Varies",
     careerGuidance: true,
-    additionalResources: null
   },
   {
     id: 3,
-    name: "Online Course",
-    type: 3, // represents online course
-    hours: "part-time",
+    name: "CodePath",
+    description: "wahhh",
+    type: "Online Course",
     country: 'United States',
-    lengthInMonths: "Varies",
+    lengthInWeeks: '10',
     careerGuidance: true,
-    additionalResources: null
+    additionalResources: "https://www.reddit.com/search/?q=codepath",
   }
-]
+];
 
 module.exports = { programs };
