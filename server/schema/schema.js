@@ -9,7 +9,7 @@ const {
   GraphQLSchema, 
 } = require('graphql');
 
-const Program = require('../models/Programs');
+const Program = require('../models/Program');
 
 const ProgramType = new GraphQLObjectType({
   name: 'Program',
