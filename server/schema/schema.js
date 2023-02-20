@@ -8,6 +8,8 @@ const {
   GraphQLSchema 
 } = require('graphql');
 
+const Program = require('../models/Programs');
+
 const ProgramType = new GraphQLObjectType({
   name: 'Program',
   fields: () => ({
@@ -28,14 +30,14 @@ const RootQuery = new GraphQLObjectType({
     programs: {
       type: new GraphQLList(ProgramType),
       resolve(parent, args) {
-        return programs;
+        return Program.find();
       } 
     },
     program: {
       type: ProgramType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return programs.find(program => program.id == args.id);
+        return Program.findById(args.id);
       }
     }
   }
