@@ -1,5 +1,3 @@
-const { programs } = require('../sampleData.js');
-
 const { 
   GraphQLObjectType, 
   GraphQLNonNull,
