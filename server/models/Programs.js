@@ -7,17 +7,20 @@ const ProgramSchema = new mongoose.Schema({
   name: { 
     type: String
   },
+  URL: { 
+    type: String
+  },
   description: { 
     type: String 
   },
   type: { 
-    type: String 
+    type: Number 
   },
   country: { 
-    type: String 
+    type: Number 
   },
   lengthInWeeks: { 
-    type: String 
+    type: Number 
   },
   careerGuidance: { 
     type: Boolean 

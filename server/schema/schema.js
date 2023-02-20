@@ -2,10 +2,11 @@ const {
   GraphQLObjectType, 
   GraphQLNonNull,
   GraphQLID, 
+  GraphQLInt,
   GraphQLString, 
   GraphQLBoolean, 
   GraphQLList,
-  GraphQLSchema 
+  GraphQLSchema, 
 } = require('graphql');
 
 const Program = require('../models/Programs');
@@ -13,13 +14,14 @@ const Program = require('../models/Programs');
 const ProgramType = new GraphQLObjectType({
   name: 'Program',
   fields: () => ({
-    id: { type: new GraphQLNonNull(GraphQLID) },
+    id: { type: GraphQLID },
     name: { type: new GraphQLNonNull(GraphQLString) },
+    URL: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: new GraphQLNonNull(GraphQLString) },
-    type: { type: GraphQLString },
-    country: { type: GraphQLString },
-    lengthInWeeks: { type: GraphQLString },
-    careerGuidance: { type: GraphQLBoolean },
+    type: { type: new GraphQLNonNull(GraphQLInt) },
+    country: { type: new GraphQLNonNull(GraphQLInt) },
+    lengthInWeeks: { type: GraphQLInt },
+    careerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
     additionalResources: { type: GraphQLString },
   })
 });
