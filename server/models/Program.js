@@ -5,10 +5,14 @@ const ProgramSchema = new mongoose.Schema({
     type: Number
   },
   name: { 
-    type: String
+    type: String,
+    unique: true, 
+    dropDups: true,
   },
   URL: { 
-    type: String
+    type: String,
+    unique: true, 
+    dropDups: true,
   },
   description: { 
     type: String 
