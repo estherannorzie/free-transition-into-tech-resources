@@ -6,13 +6,9 @@ const ProgramSchema = new mongoose.Schema({
   },
   name: { 
     type: String,
-    unique: true, 
-    dropDups: true,
   },
   URL: { 
     type: String,
-    unique: true, 
-    dropDups: true,
   },
   description: { 
     type: String 
@@ -32,6 +28,14 @@ const ProgramSchema = new mongoose.Schema({
   additionalResources: { 
     type: String 
   },
-})
+});
+
+ProgramSchema.index({
+  name: 1,
+  URL: 1
+}, {
+  unique: true,
+  dropDups: true,
+});
 
 module.exports = mongoose.model('Program', ProgramSchema);
