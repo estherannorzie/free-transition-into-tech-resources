@@ -74,6 +74,15 @@ const mutation = new GraphQLObjectType({
         return program.save();
       },
     },
+    deleteProgram: {
+      type: ProgramType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) }
+      },
+      resolve(parent, args) {
+        return Program.findByIdAndRemove(args.id);
+      },
+    }
   },
 });
 
