@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 
 const ProgramSchema = new mongoose.Schema({
-  id: {
-    type: Number
-  },
   name: { 
     type: String,
   },
