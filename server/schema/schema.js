@@ -77,10 +77,42 @@ const mutation = new GraphQLObjectType({
     deleteProgram: {
       type: ProgramType,
       args: {
-        id: { type: new GraphQLNonNull(GraphQLID) }
+        id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(parent, args) {
         return Program.findByIdAndRemove(args.id);
+      },
+    },
+    updateProgram: {
+      type: ProgramType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        name: { type: GraphQLString },
+        URL: { type: GraphQLString },
+        description: { type: GraphQLString },
+        type: { type: GraphQLInt },
+        country: { type: GraphQLInt },
+        lengthInWeeks: { type: GraphQLInt },
+        careerGuidance: { type: GraphQLBoolean },
+        additionalResources: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return Program.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              name: args.name,
+              URL: args.URL,
+              description: args.description,
+              type: args.type,
+              country: args.country,
+              lengthInWeeks: args.lengthInWeeks,
+              careerGuidance: args.careerGuidance,
+              additionalResources: args.additionalResources,
+            }
+          },
+          { new: true },
+        );
       },
     }
   },
