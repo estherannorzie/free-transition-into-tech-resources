@@ -1,18 +1,18 @@
-const { 
-  GraphQLObjectType, 
+const {
+  GraphQLObjectType,
   GraphQLNonNull,
-  GraphQLID, 
+  GraphQLID,
   GraphQLInt,
-  GraphQLString, 
-  GraphQLBoolean, 
+  GraphQLString,
+  GraphQLBoolean,
   GraphQLList,
-  GraphQLSchema, 
-} = require('graphql');
+  GraphQLSchema,
+} = require("graphql");
 
-const Program = require('../models/Program');
+const Program = require("../models/Program");
 
 const ProgramType = new GraphQLObjectType({
-  name: 'Program',
+  name: "Program",
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: new GraphQLNonNull(GraphQLString) },
@@ -23,30 +23,30 @@ const ProgramType = new GraphQLObjectType({
     lengthInWeeks: { type: GraphQLInt },
     careerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
     additionalResources: { type: GraphQLString },
-  })
+  }),
 });
 
 const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
+  name: "RootQueryType",
   fields: {
     programs: {
       type: new GraphQLList(ProgramType),
       resolve(parent, args) {
         return Program.find();
-      } 
+      },
     },
     program: {
       type: ProgramType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Program.findById(args.id);
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 const mutation = new GraphQLObjectType({
-  name: 'Mutation',
+  name: "Mutation",
   fields: {
     addProgram: {
       type: ProgramType,
@@ -72,9 +72,9 @@ const mutation = new GraphQLObjectType({
           additionalResources: args.additionalResources,
         });
         return program.save();
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 module.exports = new GraphQLSchema({

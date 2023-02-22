@@ -1,38 +1,41 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const ProgramSchema = new mongoose.Schema({
-  name: { 
+  name: {
     type: String,
   },
-  URL: { 
+  URL: {
     type: String,
   },
-  description: { 
-    type: String 
+  description: {
+    type: String,
   },
-  type: { 
-    type: Number 
+  type: {
+    type: Number,
   },
-  country: { 
-    type: Number 
+  country: {
+    type: Number,
   },
-  lengthInWeeks: { 
-    type: Number 
+  lengthInWeeks: {
+    type: Number,
   },
-  careerGuidance: { 
-    type: Boolean 
+  careerGuidance: {
+    type: Boolean,
   },
-  additionalResources: { 
-    type: String 
+  additionalResources: {
+    type: String,
   },
 });
 
-ProgramSchema.index({
-  name: 1,
-  URL: 1
-}, {
-  unique: true,
-  dropDups: true,
-});
+ProgramSchema.index(
+  {
+    name: 1,
+    URL: 1,
+  },
+  {
+    unique: true,
+    dropDups: true,
+  }
+);
 
-module.exports = mongoose.model('Program', ProgramSchema);
+module.exports = mongoose.model("Program", ProgramSchema);
