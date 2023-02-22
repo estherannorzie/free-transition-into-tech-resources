@@ -70,12 +70,12 @@ const mutation = new GraphQLObjectType({
           lengthInWeeks: args.lengthInWeeks,
           careerGuidance: args.careerGuidance,
           additionalResources: args.additionalResources,
-        })
+        });
         return program.save();
       }
     }
   }
-})
+});
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
