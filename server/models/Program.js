@@ -7,18 +7,18 @@ const ProgramSchema = new mongoose.Schema({
   specialty: {
     type: String,
     enum: [
-      "Software Development", 
-      "Web Development", 
-      "Data Science", 
-      "Artificial Intelligence", 
-      "Cybersecurity", 
-      "Data Analytics", 
-      "Information Technology", 
-      "UX/UI and Product Design", 
-      "Product Management", 
-      "Digital Marketing", 
-      "Multiple Tracks", 
-      "Other"
+      "Software Development",
+      "Web Development",
+      "Data Science",
+      "Artificial Intelligence",
+      "Cybersecurity",
+      "Data Analytics",
+      "Information Technology",
+      "UX/UI and Product Design",
+      "Product Management",
+      "Digital Marketing",
+      "Multiple Tracks",
+      "Other",
     ],
   },
   URL: {
@@ -55,7 +55,7 @@ ProgramSchema.index(
   {
     unique: true,
     dropDups: true,
-  },
+  }
 );
 
 module.exports = mongoose.model("Program", ProgramSchema);

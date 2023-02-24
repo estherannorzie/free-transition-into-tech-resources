@@ -19,25 +19,27 @@ const ProgramMutation = new GraphQLObjectType({
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         URL: { type: new GraphQLNonNull(GraphQLString) },
-        specialty: { type: new GraphQLNonNull(new GraphQLEnumType({
-          name: "ProgramSpecialty",
-          values: {
-            SWD: {value: "Software Development"},
-            WD: {value: "Web Development"},
-            DS: {value: "Data Science"},
-            AI: {value: "Artificial Intelligence"},
-            CB: {value: "Cybersecurity"},
-            DA: {value: "Data Analytics"},
-            IT: {value: "Information Technology"},
-            UXUIPD: {value: "UX/UI and Product Design"},
-            PM: {value: "Product Management"},
-            DM: {value: "Digital Marketing"},
-            MUL: {value: "Multiple Tracks"},
-            OT: {value: "Other"},
-          }
-        })
-        ),
-      },
+        specialty: {
+          type: new GraphQLNonNull(
+            new GraphQLEnumType({
+              name: "ProgramSpecialty",
+              values: {
+                SWD: { value: "Software Development" },
+                WD: { value: "Web Development" },
+                DS: { value: "Data Science" },
+                AI: { value: "Artificial Intelligence" },
+                CB: { value: "Cybersecurity" },
+                DA: { value: "Data Analytics" },
+                IT: { value: "Information Technology" },
+                UXUIPD: { value: "UX/UI and Product Design" },
+                PM: { value: "Product Management" },
+                DM: { value: "Digital Marketing" },
+                MUL: { value: "Multiple Tracks" },
+                OT: { value: "Other" },
+              },
+            })
+          ),
+        },
         description: { type: new GraphQLNonNull(GraphQLString) },
         type: { type: new GraphQLNonNull(GraphQLInt) },
         country: { type: new GraphQLNonNull(GraphQLInt) },
@@ -76,24 +78,25 @@ const ProgramMutation = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         name: { type: GraphQLString },
-        specialty: { type: new GraphQLEnumType({
-          name: "ProgramSpecialtyUpdate",
-          values: {
-            SWD: {value: "Software Development"},
-            WD: {value: "Web Development"},
-            DS: {value: "Data Science"},
-            AI: {value: "Artificial Intelligence"},
-            CB: {value: "Cybersecurity"},
-            DA: {value: "Data Analytics"},
-            IT: {value: "Information Technology"},
-            UXUIPD: {value: "UX/UI and Product Design"},
-            PM: {value: "Product Management"},
-            DM: {value: "Digital Marketing"},
-            MUL: {value: "Multiple Tracks"},
-            OT: {value: "Other"},
-          }
-        })
-      },
+        specialty: {
+          type: new GraphQLEnumType({
+            name: "ProgramSpecialtyUpdate",
+            values: {
+              SWD: { value: "Software Development" },
+              WD: { value: "Web Development" },
+              DS: { value: "Data Science" },
+              AI: { value: "Artificial Intelligence" },
+              CB: { value: "Cybersecurity" },
+              DA: { value: "Data Analytics" },
+              IT: { value: "Information Technology" },
+              UXUIPD: { value: "UX/UI and Product Design" },
+              PM: { value: "Product Management" },
+              DM: { value: "Digital Marketing" },
+              MUL: { value: "Multiple Tracks" },
+              OT: { value: "Other" },
+            },
+          }),
+        },
         URL: { type: GraphQLString },
         description: { type: GraphQLString },
         type: { type: GraphQLInt },
@@ -118,12 +121,12 @@ const ProgramMutation = new GraphQLObjectType({
               offersCareerGuidance: args.offersCareerGuidance,
               onHiatus: args.onHiatus,
               additionalResources: args.additionalResources,
-            }
+            },
           },
-          { new: true },
+          { new: true }
         );
       },
-    }
+    },
   },
 });
 
