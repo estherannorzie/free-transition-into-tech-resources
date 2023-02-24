@@ -21,7 +21,7 @@ const ProgramType = new GraphQLObjectType({
     type: { type: new GraphQLNonNull(GraphQLInt) },
     country: { type: new GraphQLNonNull(GraphQLInt) },
     lengthInWeeks: { type: GraphQLInt },
-    careerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
+    offersCareerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
     additionalResources: { type: GraphQLString },
   }),
 });
@@ -57,7 +57,8 @@ const mutation = new GraphQLObjectType({
         type: { type: new GraphQLNonNull(GraphQLInt) },
         country: { type: new GraphQLNonNull(GraphQLInt) },
         lengthInWeeks: { type: GraphQLInt },
-        careerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
+        offersCareerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
+        onHiatus: { type: new GraphQLNonNull(GraphQLBoolean) },
         additionalResources: { type: GraphQLString },
       },
       resolve(parent, args) {
@@ -68,7 +69,8 @@ const mutation = new GraphQLObjectType({
           type: args.type,
           country: args.country,
           lengthInWeeks: args.lengthInWeeks,
-          careerGuidance: args.careerGuidance,
+          offersCareerGuidance: args.offersCareerGuidance,
+          onHiatus: args.onHiatus,
           additionalResources: args.additionalResources,
         });
         return program.save();
@@ -93,7 +95,8 @@ const mutation = new GraphQLObjectType({
         type: { type: GraphQLInt },
         country: { type: GraphQLInt },
         lengthInWeeks: { type: GraphQLInt },
-        careerGuidance: { type: GraphQLBoolean },
+        offersCareerGuidance: { type: GraphQLBoolean },
+        onHiatus: { type: GraphQLBoolean },
         additionalResources: { type: GraphQLString },
       },
       resolve(parent, args) {
@@ -107,7 +110,8 @@ const mutation = new GraphQLObjectType({
               type: args.type,
               country: args.country,
               lengthInWeeks: args.lengthInWeeks,
-              careerGuidance: args.careerGuidance,
+              offersCareerGuidance: args.offersCareerGuidance,
+              onHiatus: args.onHiatus,
               additionalResources: args.additionalResources,
             }
           },

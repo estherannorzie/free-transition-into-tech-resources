@@ -19,7 +19,10 @@ const ProgramSchema = new mongoose.Schema({
   lengthInWeeks: {
     type: Number,
   },
-  careerGuidance: {
+  offersCareerGuidance: {
+    type: Boolean,
+  },
+  onHiatus: {
     type: Boolean,
   },
   additionalResources: {
@@ -35,7 +38,7 @@ ProgramSchema.index(
   {
     unique: true,
     dropDups: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Program", ProgramSchema);
