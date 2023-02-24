@@ -41,7 +41,23 @@ const ProgramMutation = new GraphQLObjectType({
           ),
         },
         description: { type: new GraphQLNonNull(GraphQLString) },
-        type: { type: new GraphQLNonNull(GraphQLInt) },
+        type: {
+          type: new GraphQLNonNull(
+            new GraphQLEnumType({
+              name: "ProgramType",
+              values: {
+                codingBootcamp: { value: "Coding Bootcamp" },
+                technicalTraining: { value: "Technical Training" },
+                apprenticeship: { value: "Apprenticeship" },
+                internship: { value: "Internship" },
+                fellowship: { value: "Fellowship" },
+                GOC: { value: "Guided Online Course" },
+                youthProgram: { value: "Youth" },
+                other: { value: "Other" },
+              },
+            })
+          ),
+        },
         country: { type: new GraphQLNonNull(GraphQLInt) },
         lengthInWeeks: { type: GraphQLInt },
         offersCareerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
@@ -99,7 +115,21 @@ const ProgramMutation = new GraphQLObjectType({
         },
         URL: { type: GraphQLString },
         description: { type: GraphQLString },
-        type: { type: GraphQLInt },
+        type: {
+          type: new GraphQLEnumType({
+            name: "ProgramTypeUpdate",
+            values: {
+              codingBootcamp: { value: "Coding Bootcamp" },
+              technicalTraining: { value: "Technical Training" },
+              apprenticeship: { value: "Apprenticeship" },
+              internship: { value: "Internship" },
+              fellowship: { value: "Fellowship" },
+              GOC: { value: "Guided Online Course" },
+              youthProgram: { value: "Youth" },
+              other: { value: "Other" },
+            },
+          }),
+        },
         country: { type: GraphQLInt },
         lengthInWeeks: { type: GraphQLInt },
         offersCareerGuidance: { type: GraphQLBoolean },

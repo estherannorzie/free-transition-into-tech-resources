@@ -28,7 +28,17 @@ const ProgramSchema = new mongoose.Schema({
     type: String,
   },
   type: {
-    type: Number,
+    type: String,
+    enum: [
+      "Coding Bootcamp",
+      "Technical Training Program",
+      "Apprenticeship",
+      "Internship",
+      "Fellowship",
+      "Guided Online Course",
+      "Youth Program",
+      "Other",
+    ],
   },
   country: {
     type: Number,

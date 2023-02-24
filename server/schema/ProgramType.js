@@ -15,7 +15,7 @@ const ProgramType = new GraphQLObjectType({
     specialty: { type: new GraphQLNonNull(GraphQLString) },
     URL: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: new GraphQLNonNull(GraphQLString) },
-    type: { type: new GraphQLNonNull(GraphQLInt) },
+    type: { type: new GraphQLNonNull(GraphQLString) },
     country: { type: new GraphQLNonNull(GraphQLInt) },
     lengthInWeeks: { type: GraphQLInt },
     offersCareerGuidance: { type: new GraphQLNonNull(GraphQLBoolean) },
