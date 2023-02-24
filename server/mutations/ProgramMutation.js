@@ -76,7 +76,24 @@ const ProgramMutation = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         name: { type: GraphQLString },
-        specialty: { type: GraphQLString },
+        specialty: { type: new GraphQLEnumType({
+          name: "ProgramSpecialtyUpdate",
+          values: {
+            SWD: {value: "Software Development"},
+            WD: {value: "Web Development"},
+            DS: {value: "Data Science"},
+            AI: {value: "Artificial Intelligence"},
+            CB: {value: "Cybersecurity"},
+            DA: {value: "Data Analytics"},
+            IT: {value: "Information Technology"},
+            UXUIPD: {value: "UX/UI and Product Design"},
+            PM: {value: "Product Management"},
+            DM: {value: "Digital Marketing"},
+            MUL: {value: "Multiple Tracks"},
+            OT: {value: "Other"},
+          }
+        })
+      },
         URL: { type: GraphQLString },
         description: { type: GraphQLString },
         type: { type: GraphQLInt },
