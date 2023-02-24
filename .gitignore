@@ -39,3 +39,4 @@ Thumbs.db
 # misc
 .env
 node_modules
+.husky
