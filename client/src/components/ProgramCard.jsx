@@ -30,10 +30,21 @@ const ProgramCard = ({ program }) => {
         display: "inline-grid",
       }}
     >
-      <Card sx={{ minWidth: "250px" }}>
+      <Card sx={{ minWidth: "250px", maxWidth: "300px"}}>
         <CardContent>
-          <Typography variant="h6">{program.name}</Typography>
-          <Typography variant="body2">{program.specialty}</Typography>
+          <Typography variant="h6" gutterBottom>
+            <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to={`https://${program.URL}`}
+              >
+                {program.name}
+            </Link>
+          </Typography>
+          <Typography variant="body2" gutterBottom>{program.specialty}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {program.description}
+          </Typography>
         </CardContent>
 
         <CardActions>
@@ -42,7 +53,6 @@ const ProgramCard = ({ program }) => {
             open={open}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
           >
             <Box
               sx={{
@@ -58,25 +68,37 @@ const ProgramCard = ({ program }) => {
                 p: 4,
               }}
             >
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Text in a modal
+              <Typography id="modal-modal-title" variant="h6" gutterBottom>
+                {program.name}
               </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                {program.description}
+              <Typography gutterBottom>
+                <span style={{ fontWeight: 'bold '}}>Country: </span> 
+                {countries[program.country]}
               </Typography>
-              <Typography>Country: {countries[program.country]}</Typography>
+              <Typography gutterBottom>
+                <span style={{ fontWeight: 'bold '}}>Length: </span> 
+                {`${program.lengthInWeeks} weeks`}
+              </Typography>
+              <Typography gutterBottom>
+                <span style={{ fontWeight: 'bold '}}>Career Guidance: </span>
+                {program.offersCareerGuidance ? "Yes": "No"}
+              </Typography>
+              <Typography gutterBottom><span style={{ fontWeight: 'bold '}}>Hiatus: </span> {program.onHiatus ? "Yes": "No"}</Typography>
+              <Typography gutterBottom>
+              <span style={{ fontWeight: 'bold '}}>Additional Resources: </span> {
+                  program.additionalResources ? 
+                  <Link target="_blank"
+                    rel="noopener noreferrer"
+                    to={`${program.additionalResources}`}
+                  >
+                    {program.additionalResources}
+                  </Link> 
+                  : 
+                  "N/A"
+                }
+              </Typography>
             </Box>
           </Modal>
-
-          <Button size="small">
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              to={`https://${program.URL}`}
-            >
-              Visit Website
-            </Link>
-          </Button>
         </CardActions>
       </Card>
     </Box>
