@@ -74,6 +74,10 @@ const ProgramCard = ({ program }) => {
                 {program.name}
               </Typography>
               <Typography gutterBottom>
+                <span style={{ fontWeight: 'bold '}}>Type: </span>
+                {program.type}
+              </Typography>
+              <Typography gutterBottom>
                 <span style={{ fontWeight: 'bold '}}>Country: </span> 
                 {countries[program.country]}
               </Typography>
