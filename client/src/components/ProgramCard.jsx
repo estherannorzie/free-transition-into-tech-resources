@@ -42,9 +42,11 @@ const ProgramCard = ({ program }) => {
             </Link>
           </Typography>
           <Typography variant="body2" gutterBottom>{program.specialty}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {program.description}
-          </Typography>
+          <Box width="260px" height="70px">
+            <Typography variant="body2" color="text.secondary">
+              {program.description}
+            </Typography>
+          </Box>
         </CardContent>
 
         <CardActions>
