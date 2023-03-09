@@ -31,7 +31,7 @@ const ProgramCard = ({ program }) => {
       }}
     >
       <Card sx={{ minWidth: "250px", maxWidth: "300px"}}>
-        <CardContent>
+        <CardContent sx={{ padding: '16px 16px 0px 16px'}}>
           <Typography variant="h6" gutterBottom>
             <Link
                 target="_blank"
