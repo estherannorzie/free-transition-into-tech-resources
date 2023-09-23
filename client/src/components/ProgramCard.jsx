@@ -9,19 +9,12 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { COUNTRIES, CARD_TEXT, MODAL_TEXT } from "../constants";
 
 const ProgramCard = ({ program }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const countries = [
-    "United States",
-    "Canada",
-    "United Kingdom",
-    "Worldwide",
-    "Other",
-  ];
 
   return (
     <Box
@@ -50,7 +43,7 @@ const ProgramCard = ({ program }) => {
         </CardContent>
 
         <CardActions>
-          <Button onClick={handleOpen}>Details</Button>
+          <Button onClick={handleOpen}>{CARD_TEXT.DETAILS}</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -103,8 +96,21 @@ const ProgramCard = ({ program }) => {
                   "N/A"
                 }
               </Typography>
+              <Typography>{`${MODAL_TEXT.COUNTRY} ${
+                COUNTRIES[program.country]
+              }`}</Typography>
             </Box>
           </Modal>
+
+          <Button size="small">
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              to={`https://${program.URL}`}
+            >
+              {CARD_TEXT.VISIT_WEBSITE}
+            </Link>
+          </Button>
         </CardActions>
       </Card>
     </Box>
